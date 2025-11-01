@@ -3,276 +3,323 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kaya Steel - Çelik Konstrüksiyon Çözümleri</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <title>Kaya Steel - Çelik Konstrüksiyon</title>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
-        .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+        
+        body {
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: #1a202c;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .nav-links a:hover {
+            color: #63b3ed;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                       url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
         }
-        .mobile-menu {
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #3182ce;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .btn:hover {
+            background: #2c5aa0;
+        }
+        
+        /* Services */
+        .services {
+            padding: 80px 0;
+            background: #f7fafc;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2d3748;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .service-card h3 {
+            color: #2d3748;
+            margin: 1rem 0;
+        }
+        
+        /* About */
+        .about {
+            padding: 80px 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        /* Contact */
+        .contact {
+            padding: 80px 0;
+            background: #2d3748;
+            color: white;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a202c;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        /* Mobile Menu */
+        .menu-btn {
             display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #1a202c;
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
-<body class="antialiased">
-
-    <!-- HEADER -->
-    <header class="bg-gray-900 sticky top-0 z-50 shadow-lg">
-        <nav class="container mx-auto px-4 py-3">
-            <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <div class="text-white text-xl font-bold flex items-center">
-                    <i class="fas fa-industry text-blue-400 mr-2 text-2xl"></i>
-                    KAYA STEEL
-                </div>
-
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-gray-300 hover:text-white transition duration-300 font-medium">ANA SAYFA</a>
-                    <a href="#services" class="text-gray-300 hover:text-white transition duration-300 font-medium">HİZMETLER</a>
-                    <a href="#about" class="text-gray-300 hover:text-white transition duration-300 font-medium">HAKKIMIZDA</a>
-                    <a href="#contact" class="text-gray-300 hover:text-white transition duration-300 font-medium">İLETİŞİM</a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button id="menuButton" class="md:hidden text-white text-2xl">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-
-            <!-- Mobile Menu -->
-            <div id="mobileMenu" class="mobile-menu mt-4 space-y-3 pb-4">
-                <a href="#home" class="block text-gray-300 hover:text-white py-2 border-b border-gray-700">ANA SAYFA</a>
-                <a href="#services" class="block text-gray-300 hover:text-white py-2 border-b border-gray-700">HİZMETLER</a>
-                <a href="#about" class="block text-gray-300 hover:text-white py-2 border-b border-gray-700">HAKKIMIZDA</a>
-                <a href="#contact" class="block text-gray-300 hover:text-white py-2 border-b border-gray-700">İLETİŞİM</a>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">KAYA STEEL</div>
+            <button class="menu-btn">☰</button>
+            <div class="nav-links">
+                <a href="#home">ANA SAYFA</a>
+                <a href="#services">HİZMETLER</a>
+                <a href="#about">HAKKIMIZDA</a>
+                <a href="#contact">İLETİŞİM</a>
             </div>
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="hero-section min-h-screen flex items-center">
-        <div class="container mx-auto px-4 text-center text-white">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                KAYA STEEL
-            </h1>
-            <h2 class="text-2xl md:text-4xl font-semibold mb-8 text-blue-200">
-                ÇELİK KONSTRÜKSİYON ÇÖZÜMLERİ
-            </h2>
-            <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto leading-relaxed">
-                Modern, dayanıklı ve estetik çelik yapılar için güvenilir çözüm ortağınız
-            </p>
-            <div class="space-x-4">
-                <a href="#services" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition duration-300 inline-block">
-                    Hizmetlerimiz
-                </a>
-                <a href="#contact" class="bg-transparent hover:bg-white hover:text-gray-900 text-white font-bold py-4 px-8 rounded-lg text-lg border-2 border-white transition duration-300 inline-block">
-                    İletişim
-                </a>
-            </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>KAYA STEEL</h1>
+            <p>Çelik Konstrüksiyon Çözümlerinde Güvenilir Adres</p>
+            <a href="#services" class="btn">HİZMETLERİMİZİ KEŞFET</a>
         </div>
     </section>
 
-    <!-- SERVICES SECTION -->
-    <section id="services" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                    Hizmetlerimiz
-                </h2>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                    Kaliteli malzeme ve uzman kadromuzla hayallerinizdeki yapıları inşa ediyoruz
-                </p>
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>HİZMETLERİMİZ</h2>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-gray-50 rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
-                    <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-home text-blue-600 text-3xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Hazır Ev Modelleri</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Modern ve fonksiyonel hazır çelik ev modellerimizle hızlı çözüm sunuyoruz.
-                    </p>
-                    <a href="#" class="text-blue-600 font-semibold hover:text-blue-700 transition duration-300">
-                        Detaylı Bilgi →
-                    </a>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>HAZIR EV MODELLERİ</h3>
+                    <p>Modern ve dayanıklı hazır çelik ev modellerimiz</p>
                 </div>
-
-                <!-- Service 2 -->
-                <div class="bg-gray-50 rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
-                    <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-drafting-compass text-blue-600 text-3xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Özel Tasarım</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Hayalinizdeki evi birlikte tasarlayalım. Size özel çözümler üretiyoruz.
-                    </p>
-                    <a href="#" class="text-blue-600 font-semibold hover:text-blue-700 transition duration-300">
-                        Detaylı Bilgi →
-                    </a>
+                <div class="service-card">
+                    <h3>ÖZEL TASARIM EVLER</h3>
+                    <p>Hayalinizdeki evi birlikte tasarlayalım</p>
                 </div>
-
-                <!-- Service 3 -->
-                <div class="bg-gray-50 rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200">
-                    <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-warehouse text-blue-600 text-3xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Endüstriyel Yapılar</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        Fabrika, depo ve atölyeler için güçlü çelik konstrüksiyon çözümleri.
-                    </p>
-                    <a href="#" class="text-blue-600 font-semibold hover:text-blue-700 transition duration-300">
-                        Detaylı Bilgi →
-                    </a>
+                <div class="service-card">
+                    <h3>ENDÜSTRİYEL YAPILAR</h3>
+                    <p>Fabrika, depo ve atölyeler için çözümler</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="py-20 bg-gray-900 text-white">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1581094794329-cdcce5c5d4d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                         alt="Kaya Steel Ekibi" 
-                         class="rounded-2xl shadow-2xl w-full">
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>HAKKIMIZDA</h2>
+                    <p>Kaya Steel olarak, yılların verdiği tecrübe ile çelik konstrüksiyon sektöründe lider firmalardan biri olmayı hedefliyoruz. Müşteri memnuniyetini en üst düzeyde tutarak, kaliteli ve güvenilir hizmet sunmaktayız.</p>
+                    <p>Modern teknolojiyi ve yenilikçi tasarım anlayışını birleştirerek, hem estetik hem de dayanıklı yapılar inşa ediyoruz.</p>
                 </div>
-                <div class="md:w-1/2">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Hakkımızda</h2>
-                    <p class="text-xl text-gray-300 mb-6 leading-relaxed">
-                        Kaya Steel olarak, 15 yılı aşkın tecrübemizle çelik konstrüksiyon sektöründe güvenin ve kalitenin adresi olduk.
-                    </p>
-                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
-                        Modern teknoloji, kaliteli malzeme ve uzman ekibimizle her projeyi özenle hayata geçiriyor, müşteri memnuniyetini en üst düzeyde tutuyoruz.
-                    </p>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-blue-400 mb-2">15+</div>
-                            <div class="text-gray-300">Yıllık Deneyim</div>
-                        </div>
-                        <div class="text-center">
-                            <div class="text-3xl font-bold text-blue-400 mb-2">500+</div>
-                            <div class="text-gray-300">Tamamlanan Proje</div>
-                        </div>
-                    </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1581094794329-cdcce5c5d4d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Hakkımızda">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <footer id="contact" class="bg-gray-800 text-white pt-16 pb-8">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-                <!-- Contact Info -->
-                <div>
-                    <h3 class="text-2xl font-bold mb-6">İletişim</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start">
-                            <i class="fas fa-map-marker-alt text-blue-400 mt-1 mr-3"></i>
-                            <span>Örnek Mah. Çelik Sk. No:123<br>İstanbul / Türkiye</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-phone text-blue-400 mr-3"></i>
-                            <span>+90 (212) 555 44 33</span>
-                        </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-envelope text-blue-400 mr-3"></i>
-                            <span>info@kayasteel.com</span>
-                        </div>
-                    </div>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>İLETİŞİM</h3>
+                    <p>Adres: Örnek Mah. Çelik Sk. No:123, İstanbul</p>
+                    <p>Telefon: +90 (212) 555 44 33</p>
+                    <p>Email: info@kayasteel.com</p>
                 </div>
-
-                <!-- Quick Links -->
-                <div>
-                    <h3 class="text-2xl font-bold mb-6">Hızlı Linkler</h3>
-                    <div class="space-y-3">
-                        <a href="#home" class="block text-gray-300 hover:text-white transition duration-300">Ana Sayfa</a>
-                        <a href="#services" class="block text-gray-300 hover:text-white transition duration-300">Hizmetler</a>
-                        <a href="#about" class="block text-gray-300 hover:text-white transition duration-300">Hakkımızda</a>
-                        <a href="#contact" class="block text-gray-300 hover:text-white transition duration-300">İletişim</a>
-                    </div>
-                </div>
-
-                <!-- Services -->
-                <div>
-                    <h3 class="text-2xl font-bold mb-6">Hizmetler</h3>
-                    <div class="space-y-3">
-                        <a href="#" class="block text-gray-300 hover:text-white transition duration-300">Hazır Evler</a>
-                        <a href="#" class="block text-gray-300 hover:text-white transition duration-300">Özel Tasarım</a>
-                        <a href="#" class="block text-gray-300 hover:text-white transition duration-300">Endüstriyel Yapılar</a>
-                        <a href="#" class="block text-gray-300 hover:text-white transition duration-300">Danışmanlık</a>
-                    </div>
-                </div>
-
-                <!-- Social Media -->
-                <div>
-                    <h3 class="text-2xl font-bold mb-6">Sosyal Medya</h3>
-                    <p class="text-gray-300 mb-4">Bizi takip edin</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="bg-gray-700 hover:bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center transition duration-300">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="bg-gray-700 hover:bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center transition duration-300">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="bg-gray-700 hover:bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center transition duration-300">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                    </div>
+                <div class="contact-info">
+                    <h3>HIZLI MENÜ</h3>
+                    <p><a href="#home" style="color: white;">Ana Sayfa</a></p>
+                    <p><a href="#services" style="color: white;">Hizmetler</a></p>
+                    <p><a href="#about" style="color: white;">Hakkımızda</a></p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Copyright -->
-            <div class="border-t border-gray-700 pt-8 text-center">
-                <p>&copy; 2024 Kaya Steel. Tüm hakları saklıdır.</p>
-            </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Kaya Steel. Tüm hakları saklıdır.</p>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script>
-        // Mobile menu toggle
-        const menuButton = document.getElementById('menuButton');
-        const mobileMenu = document.getElementById('mobileMenu');
-
-        menuButton.addEventListener('click', function() {
-            if (mobileMenu.classList.contains('mobile-menu')) {
-                mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
-            }
+        // Basit mobil menü
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
-
-        // Close mobile menu when clicking on links
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.style.display = 'none';
-            });
-        });
-
-        // Smooth scrolling for anchor links
+        
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -282,10 +329,11 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    // Mobil menüyü kapat
+                    navLinks.classList.remove('active');
                 }
             });
         });
     </script>
-
 </body>
 </html>
