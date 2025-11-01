@@ -5,218 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kaya Steel - Çelik Konstrüksiyon</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        
-        body {
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { line-height: 1.6; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
         /* Header */
-        header {
-            background: #1a202c;
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
+        header { background: #1a202c; color: white; padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: #63b3ed; }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { color: white; text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover { color: #63b3ed; }
         
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        /* Hero */
+        .hero { 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), #2d3748;
+            height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            color: white; 
+            margin-top: 60px;
         }
-        
-        .logo {
-            font-size: 1.5rem;
+        .hero-content h1 { font-size: 3rem; margin-bottom: 1rem; }
+        .hero-content p { font-size: 1.2rem; margin-bottom: 2rem; }
+        .btn { 
+            display: inline-block; 
+            background: #3182ce; 
+            color: white; 
+            padding: 12px 30px; 
+            text-decoration: none; 
+            border-radius: 5px; 
             font-weight: bold;
+            transition: background 0.3s;
         }
+        .btn:hover { background: #2c5aa0; }
         
-        .nav-links {
-            display: flex;
-            gap: 2rem;
+        /* Services */
+        .services { padding: 80px 0; background: #f7fafc; }
+        .section-title { text-align: center; margin-bottom: 3rem; }
+        .section-title h2 { font-size: 2.5rem; color: #2d3748; margin-bottom: 1rem; }
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2rem; 
         }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
+        .service-card { 
+            background: white; 
+            padding: 2rem; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            text-align: center;
+            transition: transform 0.3s;
         }
+        .service-card:hover { transform: translateY(-5px); }
+        .service-card h3 { color: #2d3748; margin: 1rem 0; font-size: 1.5rem; }
         
-        .nav-links a:hover {
-            color: #63b3ed;
+        /* About */
+        .about { padding: 80px 0; background: white; }
+        .about-content { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 3rem; 
+            align-items: center; 
         }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                       url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
+        .about-text h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #2d3748; }
+        .about-text p { margin-bottom: 1rem; font-size: 1.1rem; }
+        .about-image { 
+            background: #e2e8f0; 
+            height: 400px; 
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            color: white;
-            margin-top: 60px;
-        }
-        
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero-content p {
+            color: #4a5568;
             font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: #3182ce;
-            color: white;
-            padding: 12px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        
-        .btn:hover {
-            background: #2c5aa0;
-        }
-        
-        /* Services */
-        .services {
-            padding: 80px 0;
-            background: #f7fafc;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: #2d3748;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        
-        .service-card h3 {
-            color: #2d3748;
-            margin: 1rem 0;
-        }
-        
-        /* About */
-        .about {
-            padding: 80px 0;
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #2d3748;
-        }
-        
-        .about-image img {
-            width: 100%;
-            border-radius: 10px;
         }
         
         /* Contact */
-        .contact {
-            padding: 80px 0;
-            background: #2d3748;
-            color: white;
+        .contact { padding: 80px 0; background: #2d3748; color: white; }
+        .contact-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 2rem; 
         }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .contact-info h3 {
-            margin-bottom: 1rem;
-        }
+        .contact-info h3 { margin-bottom: 1rem; color: #63b3ed; }
+        .contact-info p { margin-bottom: 0.5rem; }
         
         /* Footer */
-        footer {
-            background: #1a202c;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
+        footer { background: #1a202c; color: white; text-align: center; padding: 2rem 0; }
         
-        /* Mobile Menu */
-        .menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
+        /* Mobile */
+        .menu-btn { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
         
         @media (max-width: 768px) {
-            .menu-btn {
-                display: block;
-            }
-            
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: #1a202c;
-                flex-direction: column;
+            .menu-btn { display: block; }
+            .nav-links { 
+                display: none; 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                width: 100%; 
+                background: #1a202c; 
+                flex-direction: column; 
                 padding: 1rem;
+                text-align: center;
             }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-content h1 {
-                font-size: 2rem;
-            }
+            .nav-links.active { display: flex; }
+            .about-content { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2rem; }
         }
     </style>
 </head>
@@ -237,10 +135,13 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>KAYA STEEL</h1>
-            <p>Çelik Konstrüksiyon Çözümlerinde Güvenilir Adres</p>
-            <a href="#services" class="btn">HİZMETLERİMİZİ KEŞFET</a>
+        <div class="container">
+            <div class="hero-content">
+                <h1>KAYA STEEL</h1>
+                <p>Çelik Konstrüksiyon Çözümlerinde Güvenilir Adresiniz</p>
+                <p>Modern, dayanıklı ve estetik çelik yapılar için profesyonel çözümler</p>
+                <a href="#services" class="btn">HİZMETLERİMİZİ KEŞFET</a>
+            </div>
         </div>
     </section>
 
@@ -249,19 +150,20 @@
         <div class="container">
             <div class="section-title">
                 <h2>HİZMETLERİMİZ</h2>
+                <p>Size özel çelik konstrüksiyon çözümleri</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <h3>HAZIR EV MODELLERİ</h3>
-                    <p>Modern ve dayanıklı hazır çelik ev modellerimiz</p>
+                    <p>Modern ve dayanıklı hazır çelik ev modellerimiz ile hızlı çözüm</p>
                 </div>
                 <div class="service-card">
                     <h3>ÖZEL TASARIM EVLER</h3>
-                    <p>Hayalinizdeki evi birlikte tasarlayalım</p>
+                    <p>Hayalinizdeki evi birlikte tasarlayalım, size özel çözümler üretelim</p>
                 </div>
                 <div class="service-card">
                     <h3>ENDÜSTRİYEL YAPILAR</h3>
-                    <p>Fabrika, depo ve atölyeler için çözümler</p>
+                    <p>Fabrika, depo ve atölyeler için güçlü çelik konstrüksiyon çözümleri</p>
                 </div>
             </div>
         </div>
@@ -273,11 +175,11 @@
             <div class="about-content">
                 <div class="about-text">
                     <h2>HAKKIMIZDA</h2>
-                    <p>Kaya Steel olarak, yılların verdiği tecrübe ile çelik konstrüksiyon sektöründe lider firmalardan biri olmayı hedefliyoruz. Müşteri memnuniyetini en üst düzeyde tutarak, kaliteli ve güvenilir hizmet sunmaktayız.</p>
-                    <p>Modern teknolojiyi ve yenilikçi tasarım anlayışını birleştirerek, hem estetik hem de dayanıklı yapılar inşa ediyoruz.</p>
+                    <p>Kaya Steel olarak, 15 yılı aşkın tecrübemizle çelik konstrüksiyon sektöründe güvenin ve kalitenin adresi olduk. Müşteri memnuniyetini en üst düzeyde tutarak, kaliteli ve güvenilir hizmet sunmaktayız.</p>
+                    <p>Modern teknoloji, kaliteli malzeme ve uzman ekibimizle her projeyi özenle hayata geçiriyoruz. Estetik ve dayanıklılığı bir arada sunarak, hayallerinizdeki yapıları gerçeğe dönüştürüyoruz.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1581094794329-cdcce5c5d4d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Hakkımızda">
+                    Çelik Konstrüksiyon Görseli
                 </div>
             </div>
         </div>
@@ -286,18 +188,22 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">İLETİŞİM</h2>
+                <p>Bize ulaşın, projenizi konuşalım</p>
+            </div>
             <div class="contact-grid">
                 <div class="contact-info">
-                    <h3>İLETİŞİM</h3>
-                    <p>Adres: Örnek Mah. Çelik Sk. No:123, İstanbul</p>
-                    <p>Telefon: +90 (212) 555 44 33</p>
-                    <p>Email: info@kayasteel.com</p>
+                    <h3>İLETİŞİM BİLGİLERİ</h3>
+                    <p><strong>Adres:</strong> Örnek Mah. Çelik Sk. No:123, İstanbul</p>
+                    <p><strong>Telefon:</strong> +90 (212) 555 44 33</p>
+                    <p><strong>Email:</strong> info@kayasteel.com</p>
                 </div>
                 <div class="contact-info">
-                    <h3>HIZLI MENÜ</h3>
-                    <p><a href="#home" style="color: white;">Ana Sayfa</a></p>
-                    <p><a href="#services" style="color: white;">Hizmetler</a></p>
-                    <p><a href="#about" style="color: white;">Hakkımızda</a></p>
+                    <h3>HIZLI ERİŞİM</h3>
+                    <p><a href="#home" style="color: #63b3ed;">Ana Sayfa</a></p>
+                    <p><a href="#services" style="color: #63b3ed;">Hizmetler</a></p>
+                    <p><a href="#about" style="color: #63b3ed;">Hakkımızda</a></p>
                 </div>
             </div>
         </div>
@@ -307,11 +213,12 @@
     <footer>
         <div class="container">
             <p>&copy; 2024 Kaya Steel. Tüm hakları saklıdır.</p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #a0aec0;">Profesyonel Çelik Konstrüksiyon Çözümleri</p>
         </div>
     </footer>
 
     <script>
-        // Basit mobil menü
+        // Mobil menü
         const menuBtn = document.querySelector('.menu-btn');
         const navLinks = document.querySelector('.nav-links');
         
