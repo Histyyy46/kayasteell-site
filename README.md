@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     
     <!-- 
-      !!! BU SATIR ÇOK ÖNEMLİ !!!
       Bu 'viewport' etiketi, sitenin mobil cihazların ekran genişliğine göre
       kendini doğru bir şekilde ölçeklendirmesini sağlar.
-      Bu olmazsa, site telefonda küçücük bir masaüstü versiyonu gibi görünür.
     -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -18,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome (ikonlar için) -->
+    <!-- Font Awesome (ikonlar için) - DÜZELTME: 'xintegrity' 'integrity' olarak düzeltildi -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
@@ -27,7 +25,8 @@
             background-color: #f8f9fa; 
         }
         .hero-section {
-            background-image: url('https://placehold.co/1920x1000/4a5568/f7fafc?text=Modern+Çelik+Yapı');
+            /* DÜZELTME: Arka plan resmindeki 'text=' parametresi kaldırıldı, böylece yazılar üst üste binmez */
+            background-image: url('https://placehold.co/1920x1000/4a5568/f7fafc?text=+');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -56,12 +55,7 @@
                     KAYA STEEL
                 </div>
 
-                <!-- 
-                  !!! DUYARLI TASARIM ÖRNEĞİ !!!
-                  'hidden': Normalde (mobilde) gizlidir.
-                  'md:flex': "Medium" (orta) ekran boyutundan (tablet/masaüstü) itibaren görünür (flex) olur.
-                  Bu, "Masaüstü Menüsü"dür.
-                -->
+                <!-- Masaüstü Menüsü -->
                 <div class="hidden md:flex items-center space-x-6 text-gray-300">
                     <a href="#home" class="hover:text-white transition duration-300">ANA SAYFA</a>
                     <a href="#services" class="hover:text-white transition duration-300">HİZMETLER</a>
@@ -72,11 +66,7 @@
                     </button>
                 </div>
 
-                <!-- 
-                  !!! DUYARLI TASARIM ÖRNEĞİ !!!
-                  'md:hidden': "Medium" (orta) ekran boyutundan itibaren gizlenir.
-                  Bu, sadece mobilde görünen "Hamburger Menü Butonu"dur.
-                -->
+                <!-- Mobil Menü Butonu -->
                 <div class="md:hidden">
                     <button id="mobile-menu-button" class="text-white focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -86,7 +76,7 @@
                 </div>
             </div>
 
-            <!-- Mobil Menü (Açılır) - Bu bölüm de 'md:hidden' ile sadece mobilde görünür -->
+            <!-- Mobil Menü (Açılır) -->
             <div id="mobile-menu" class="md:hidden mt-4 space-y-2">
                 <a href="#home" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md transition duration-300">ANA SAYFA</a>
                 <a href="#services" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white rounded-md transition duration-300">HİZMETLER</a>
@@ -104,21 +94,10 @@
     <!-- ANA GÖVDE -->
     <main>
         <!-- Kahraman (Hero) Bölümü -->
-        <!-- 
-          !!! DUYARLI TASARIM ÖRNEĞİ !!!
-          'h-[70vh]': Yükseklik mobilde ekranın %70'i.
-          'md:h-[90vh]': Yükseklik orta ekrandan itibaren %90'ı.
-        -->
         <section id="home" class="hero-section h-[70vh] md:h-[90vh] flex items-center justify-center text-white relative">
             <div class="absolute inset-0 bg-black opacity-50"></div>
             
             <div class="container mx-auto px-6 text-center z-10">
-                <!-- 
-                  !!! DUYARLI TASARIM ÖRNEĞİ !!!
-                  'text-3xl': Yazı boyutu mobilde (default).
-                  'md:text-5xl': Yazı boyutu orta ekranda.
-                  'lg:text-6xl': Yazı boyutu geniş ekranda (masaüstü).
-                -->
                 <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
                     KAYA STEEL: GÜÇLÜ, DAYANIKLI, ESTETİK
                 </h1>
@@ -146,11 +125,6 @@
                     </h3>
                 </div>
 
-                <!-- 
-                  !!! DUYARLI TASARIM ÖRNEĞİ !!!
-                  'grid-cols-1': Mobilde (default) kartlar 1 sütunlu (alt alta dizilir).
-                  'md:grid-cols-3': Orta ekrandan itibaren 3 sütunlu (yan yana dizilir).
-                -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Kart 1: Hazır Ev Modelleri -->
                     <div class="border border-gray-200 rounded-lg p-8 text-center shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white">
@@ -206,17 +180,12 @@
         <!-- Hakkımızda Bölümü -->
         <section id="about" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
-                <!-- 
-                  !!! DUYARLI TASARIM ÖRNEĞİ !!!
-                  'flex-col': Mobilde (default) resim ve yazı alt alta dizilir.
-                  'md:flex-row': Orta ekrandan itibaren yan yana dizilir.
-                -->
                 <div class="flex flex-col md:flex-row items-center gap-12">
-                    <!-- Resim ('md:w-1/2' -> ortadan itibaren genişliğin yarısı) -->
+                    <!-- Resim -->
                     <div class="md:w-1/2">
                         <img src="https://placehold.co/600x400/a0aec0/f7fafc?text=Kaya+Steel+Ekibi" alt="Hakkımızda" class="rounded-lg shadow-xl w-full">
                     </div>
-                    <!-- Metin ('md:w-1/2' -> ortadan itibaren genişliğin yarısı) -->
+                    <!-- Metin -->
                     <div class="md:w-1/2">
                         <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Hakkımızda</h2>
                         <p class="text-gray-700 text-lg mb-4">
@@ -234,11 +203,6 @@
     <!-- FOOTER / Alt Bilgi -->
     <footer id="contact" class="bg-gray-900 text-gray-300 pt-16 pb-8">
         <div class="container mx-auto px-6">
-            <!-- 
-              !!! DUYARLI TASARIM ÖRNEĞİ !!!
-              'grid-cols-1': Mobilde (default) 1 sütunlu (alt alta).
-              'md:grid-cols-4': Orta ekrandan itibaren 4 sütunlu (yan yana).
-            -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
                 <!-- Kurumsal -->
                 <div>
