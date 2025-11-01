@@ -2,21 +2,18 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    
-    <!-- 
-      Bu 'viewport' etiketi, sitenin mobil cihazların ekran genişliğine göre
-      kendini doğru bir şekilde ölçeklendirmesini sağlar.
-    -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Kaya Steel - Çelik Konstrüksiyon Çözümleri</title>
-    <!-- Tailwind CSS -->
+    
+    <!-- 1. Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Font - Inter -->
+    
+    <!-- 2. Google Font - Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome (ikonlar için) - DÜZELTME: 'xintegrity' 'integrity' olarak düzeltildi -->
+    
+    <!-- 3. Font Awesome (İkonlar) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
@@ -24,18 +21,20 @@
             font-family: 'Inter', sans-serif;
             background-color: #f8f9fa; 
         }
+        /* DÜZELTME: Arka plan resmi, placehold.co yerine
+           daha güvenilir bir kaynak olan Unsplash'tan çekildi.
+        */
         .hero-section {
-            /* DÜZELTME: Arka plan resmindeki 'text=' parametresi kaldırıldı, böylece yazılar üst üste binmez */
-            background-image: url('https://placehold.co/1920x1000/4a5568/f7fafc?text=+');
+            background-image: url('https://source.unsplash.com/1920x1080/?modern,architecture,steel');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
         header {
-            background-color: #1f2937;
+            background-color: #1f2937; /* Koyu mavi/gri */
         }
         #mobile-menu {
-            display: none;
+            display: none; /* Mobil menü varsayılan olarak gizli */
         }
     </style>
 </head>
@@ -55,7 +54,7 @@
                     KAYA STEEL
                 </div>
 
-                <!-- Masaüstü Menüsü -->
+                <!-- Masaüstü Menü -->
                 <div class="hidden md:flex items-center space-x-6 text-gray-300">
                     <a href="#home" class="hover:text-white transition duration-300">ANA SAYFA</a>
                     <a href="#services" class="hover:text-white transition duration-300">HİZMETLER</a>
@@ -95,6 +94,7 @@
     <main>
         <!-- Kahraman (Hero) Bölümü -->
         <section id="home" class="hero-section h-[70vh] md:h-[90vh] flex items-center justify-center text-white relative">
+            <!-- Arka plan karartması -->
             <div class="absolute inset-0 bg-black opacity-50"></div>
             
             <div class="container mx-auto px-6 text-center z-10">
@@ -105,7 +105,7 @@
                     ÇELİK KONSTRÜKSİYON ÇÖZÜMLERİ
                 </h2>
                 <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10">
-                    Nasip-persoo-teklone ikram alan yihnic-kero-kibdcbldcbln rppol-tekehecebil-ceeem. (Örnek metin)
+                    Hayalinizdeki modern ve sağlam çelik yapılar için en doğru adrestesiniz. Projelerinizi hayata geçirmek için buradayız.
                 </p>
                 <a href="#services" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg text-lg transition duration-300 shadow-lg">
                     Hizmetlerimizi Keşfedin
@@ -118,7 +118,7 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
                     <h2 class="text-xl md:text-2xl text-gray-700 mb-2">
-                        Kaya Steel olarak, çelikten yaşam ve tasarımda tüm çelik konstrüksiyon evler
+                        Kaya Steel olarak, çağdaş yaşam için çelik konstrüksiyon evler
                     </h2>
                     <h3 class="text-3xl md:text-4xl font-bold text-gray-900">
                         Öne Çıkan Hizmetler
@@ -183,7 +183,7 @@
                 <div class="flex flex-col md:flex-row items-center gap-12">
                     <!-- Resim -->
                     <div class="md:w-1/2">
-                        <img src="https://placehold.co/600x400/a0aec0/f7fafc?text=Kaya+Steel+Ekibi" alt="Hakkımızda" class="rounded-lg shadow-xl w-full">
+                        <img src="https://source.unsplash.com/600x400/?construction,team" alt="Hakkımızda" class="rounded-lg shadow-xl w-full">
                     </div>
                     <!-- Metin -->
                     <div class="md:w-1/2">
@@ -259,6 +259,7 @@
                 </div>
             </div>
             
+            <!-- Alt Çizgi ve Telif Hakkı -->
             <div class="border-t border-gray-700 pt-8 mt-8 text-center">
                 <p>&copy; 2025 Kaya Steel. Tüm hakları saklıdır.</p>
                 <p class="text-sm text-gray-500 mt-1">
@@ -274,6 +275,7 @@
         const mobileMenu = document.getElementById('mobile-menu');
 
         menuButton.addEventListener('click', () => {
+            // 'display: none' veya 'display: block' arasında geçiş yap
             if (mobileMenu.style.display === 'block') {
                 mobileMenu.style.display = 'none';
             } else {
